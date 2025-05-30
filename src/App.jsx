@@ -155,7 +155,7 @@ import React, { useState, useEffect } from 'react';
       return (
         <BrowserRouter>
           <Routes>
-        <Route path=\"/crypto-test\" element={<CryptoTestPage />} />
+        <Route path="/crypto-test" element={<CryptoTestPage />} />
             <Route path="/auth" element={<AuthPage onLoginSuccess={handleLoginSuccess} isAuthenticated={isAuthenticated} />} />
             <Route 
               path="/pin-login" 
