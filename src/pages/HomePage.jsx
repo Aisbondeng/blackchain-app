@@ -1,4 +1,5 @@
 import React
+import { useState } from 'react';
 import { useWalletConnection } from "../hooks/useWalletConnection";, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { Input } from '@/components/ui/input';
