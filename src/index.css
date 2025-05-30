@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 224 71.4% 4.1%; /* Very dark blue-gray */
+  --foreground: 210 20% 98%; /* Almost white */
+
+  --muted: 215 27.9% 16.9%; /* Darker gray-blue */
+  --muted-foreground: 217.2 32.6% 70.0%; /* Lighter gray for muted text */
+
+  --popover: 224 71.4% 4.1%;
+  --popover-foreground: 210 20% 98%;
+
+  --card: 220 40% 8%; /* Slightly lighter dark blue-gray for cards */
+  --card-foreground: 210 20% 98%;
+
+  --border: 215 27.9% 16.9%;
+  --input: 215 27.9% 16.9%;
+
+  --primary: 263.4 70% 50.4%; /* Vibrant purple */
+  --primary-foreground: 210 20% 98%;
+
+  --secondary: 215 27.9% 16.9%; /* Dark gray-blue for secondary elements */
+  --secondary-foreground: 210 20% 98%;
+
+  --accent: 217.2 32.6% 17.5%; /* Accent color, can be similar to secondary or a different shade */
+  --accent-foreground: 210 20% 98%;
+
+  --destructive: 0 62.8% 30.6%; /* Dark red for destructive actions */
+  --destructive-foreground: 210 20% 98%;
+
+  --ring: 263.4 70% 50.4%; /* Primary color for focus rings */
+
+  --radius: 0.5rem; /* Default border radius */
+}
+
+.dark {
+  --background: 224 71.4% 4.1%;
+  --foreground: 210 20% 98%;
+
+  --muted: 215 27.9% 16.9%;
+  --muted-foreground: 217.2 32.6% 70.0%;
+
+  --popover: 224 71.4% 4.1%;
+  --popover-foreground: 210 20% 98%;
+
+  --card: 220 40% 8%;
+  --card-foreground: 210 20% 98%;
+
+  --border: 215 27.9% 16.9%;
+  --input: 215 27.9% 16.9%;
+
+  --primary: 263.4 70% 50.4%;
+  --primary-foreground: 210 20% 98%;
+
+  --secondary: 215 27.9% 16.9%;
+  --secondary-foreground: 210 20% 98%;
+
+  --accent: 217.2 32.6% 17.5%;
+  --accent-foreground: 210 20% 98%;
+
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 210 20% 98%;
+
+  --ring: 263.4 70% 50.4%;
+}
+
+
+@layer base {
+  * {
+    @apply border-border;
+    box-sizing: border-box;
+  }
+  html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden; /* Prevent scrolling on the body itself */
+    -webkit-tap-highlight-color: transparent;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    display: flex;
+    justify-content: center;
+  }
+  
+  #root {
+    height: 100%;
+    width: 100%;
+    max-width: 480px; /* Typical mobile width */
+    display: flex;
+    flex-direction: column;
+    border-left: 1px solid hsl(var(--border));
+    border-right: 1px solid hsl(var(--border));
+    position: relative;
+    overflow: hidden; /* #root itself should not scroll */
+  }
+
+  /* This class will be applied to the main content area that needs scrolling */
+  .main-content-area {
+    flex-grow: 1;
+    overflow-y: auto; /* Enable vertical scrolling */
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    -webkit-overflow-scrolling: touch; /* Smooth scrolling on iOS */
+    padding-bottom: 4rem; /* Add padding to prevent content from being hidden by bottom nav */
+  }
+
+  /* Ensure inputs are not zoomed in on iOS */
+  input[type="text"],
+  input[type="password"],
+  input[type="email"],
+  input[type="number"],
+  textarea {
+    font-size: 16px !important;
+  }
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--accent));
+}
