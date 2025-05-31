@@ -1,0 +1,30 @@
+workflows:
+  build_blackchain_app:
+    name: Build Blackchain Crypto App
+    instance_type: mac_mini_m1
+    environment:
+      vars:
+        NODE_ENV: production
+      node: latest
+    scripts:
+      - name: Install dependencies
+        script: |
+          npm install
+      - name: Fix missing modules
+        script: |
+          if [ ! -d "node_modules/@noble/secp256k1" ]; then
+            echo "Installing missing noble secp256k1 module..."
+            npm install @noble/secp256k1
+          fi
+      - name: Build the app
+        script: |
+          npm run build
+    artifacts:
+      - dist/**
+    publishing:
+      email:
+        recipients:
+          - your-email@example.com
+        notify:
+          success: true
+          failure: true
