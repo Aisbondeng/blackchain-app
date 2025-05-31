@@ -182,7 +182,13 @@ logger.error = (msg, options) => {
 
 	loggerError(msg, options);
 }
-
+export default {
+  build: {
+    rollupOptions: {
+      external: ['@noble/secp256k1']
+    }
+  }
+}
 export default defineConfig({
 	customLogger: logger,
 	plugins: [react(), addTransformIndexHtml,
