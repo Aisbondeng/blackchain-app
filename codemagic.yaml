@@ -11,17 +11,12 @@ workflows:
         script: |
           rm -rf node_modules package-lock.json
           npm install
-      - name: Ensure plugin-react is present
+      - name: Ensure required dev dependencies are present
         script: |
-          npm install --save-dev @vitejs/plugin-react
+          npm install --save-dev @vitejs/plugin-react postcss autoprefixer
       - name: Build the app
         script: |
           npm run build
-          scripts:
-      - name: Clean install dependencies
-          script: |
-      rm -rf node_modules package-lock.json
-      npm install
     artifacts:
       - dist/**
     publishing:
