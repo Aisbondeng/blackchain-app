@@ -7,10 +7,12 @@ workflows:
         NODE_ENV: production
       node: latest
     scripts:
+      - name: Install plugin-react first
+        script: |
+          npm install --save-dev @vitejs/plugin-react
       - name: Install dependencies
         script: |
           npm install
-          npm install --save-dev @vitejs/plugin-react
       - name: Build the app
         script: |
           npm run build
