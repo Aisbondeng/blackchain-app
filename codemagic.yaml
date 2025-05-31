@@ -17,6 +17,11 @@ workflows:
       - name: Build the app
         script: |
           npm run build
+          scripts:
+  - name: Clean install dependencies
+    script: |
+      rm -rf node_modules package-lock.json
+      npm install
     artifacts:
       - dist/**
     publishing:
