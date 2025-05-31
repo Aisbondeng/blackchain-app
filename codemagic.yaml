@@ -7,10 +7,13 @@ workflows:
         NODE_ENV: production
       node: latest
     scripts:
-      - name: Clean & install exact dependencies
+      - name: Clean install all dependencies with npm ci
         script: |
           rm -rf node_modules
-          npm ci
+          npm ci || npm install
+      - name: Reinstall missing dev dependencies explicitly
+        script: |
+          npm install --save-dev @vitejs/plugin-react postcss autoprefixer
       - name: Build the app
         script: |
           npm run build
