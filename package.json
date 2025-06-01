@@ -26,6 +26,7 @@
     "autoprefixer": "^10.4.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "crypto-js": "^4.2.0",
     "framer-motion": "^10.16.4",
     "lucide-react": "^0.292.0",
     "postcss": "^8.4.0",
