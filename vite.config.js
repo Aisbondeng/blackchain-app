@@ -49,8 +49,6 @@ export default defineConfig({
       external: ['@noble/secp256k1', '@noble/hashes']
     }
   },
-  ...
-});
   customLogger: logger,
   plugins: [react(), addTransformIndexHtml, wasm(), topLevelAwait()],
   server: {
