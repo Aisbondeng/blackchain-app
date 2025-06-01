@@ -3,15 +3,13 @@ workflows:
     name: Build Blackchain Crypto App
     instance_type: mac_mini_m1
     environment:
-      vars:
-        NODE_ENV: production
       node: latest
     scripts:
-      - name: Bersihkan dan install
+      - name: Clean install dependencies
         script: |
           rm -rf node_modules package-lock.json
           npm install
-      - name: Build aplikasi
+      - name: Build app
         script: |
           npm run build
     artifacts:
@@ -19,7 +17,7 @@ workflows:
     publishing:
       email:
         recipients:
-          - Kpphmri@gmail.com
+          - Kpphmril.com
         notify:
           success: true
           failure: true
