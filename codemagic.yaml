@@ -15,9 +15,6 @@ workflows:
     artifacts:
       - dist/**
     publishing:
-      email:
-        recipients:
-          - Kpphmril.com
         notify:
           success: true
           failure: true
