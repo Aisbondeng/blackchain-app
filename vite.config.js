@@ -46,9 +46,11 @@ logger.error = (msg, options) => {
 export default defineConfig({
   build: {
     rollupOptions: {
-      external: ['@noble/secp256k1']
+      external: ['@noble/secp256k1', '@noble/hashes']
     }
   },
+  ...
+});
   customLogger: logger,
   plugins: [react(), addTransformIndexHtml, wasm(), topLevelAwait()],
   server: {
