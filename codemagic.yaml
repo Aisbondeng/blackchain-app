@@ -14,7 +14,6 @@ workflows:
           npm run build
     artifacts:
       - dist/**
-    publishing:
-        notify:
+    publishing
           success: true
           failure: true
